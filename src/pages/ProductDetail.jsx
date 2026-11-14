@@ -30,7 +30,6 @@ import EmptyState from '../components/EmptyState'
 
 const conditionStyles = {
   New: 'bg-lime-200 text-forest-900',
-  Fresh: 'bg-lime-200 text-forest-900',
   'Like new': 'bg-forest-100 text-forest-800',
   Good: 'bg-amber/20 text-forest-900',
   Fair: 'bg-coral/15 text-coral',
@@ -120,7 +119,7 @@ export default function ProductDetail() {
 
       <div className="container-x grid gap-8 py-6 lg:grid-cols-[1.04fr_0.96fr] lg:gap-12 lg:py-10">
         {/* GALLERY */}
-        <div>
+        <div className="min-w-0">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
@@ -220,7 +219,7 @@ export default function ProductDetail() {
         </div>
 
         {/* INFO */}
-        <div>
+        <div className="min-w-0">
           <div className="flex flex-wrap items-center gap-2 text-[10px] font-bold uppercase tracking-[0.14em] text-forest-900/70">
             <span className="rounded-full bg-white px-2.5 py-1 text-forest-700 shadow-sm">
               {product.category}
@@ -259,7 +258,7 @@ export default function ProductDetail() {
             <span>{product.campus}</span>
           </div>
 
-          <div className="mt-5 flex gap-2">
+          <div className="mt-5 flex flex-wrap gap-2">
             <button
               type="button"
               onClick={() => setChatOpen(true)}

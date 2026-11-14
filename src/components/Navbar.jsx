@@ -48,7 +48,7 @@ export default function Navbar() {
           : 'border-transparent bg-cream/60 backdrop-blur-md'
       }`}
     >
-      <div className="container-x flex h-[72px] items-center justify-between gap-4">
+      <div className="container-x flex h-[72px] items-center justify-between gap-2 sm:gap-4">
         <Link to="/" className="group flex items-center gap-2.5">
           <span className="grid h-10 w-10 place-items-center rounded-2xl bg-forest-900 text-lime-300 shadow-soft transition group-hover:rotate-[-6deg]">
             <svg
@@ -64,7 +64,7 @@ export default function Navbar() {
           </span>
           <span className="flex items-baseline gap-1.5 text-[19px] leading-none">
             <span className="font-extrabold tracking-tight text-forest-950">Campus</span>
-            <span className="font-display font-semibold italic text-forest-700">Market</span>
+            <span className="font-display font-semibold italic text-forest-700 max-[359px]:hidden">Market</span>
           </span>
         </Link>
 

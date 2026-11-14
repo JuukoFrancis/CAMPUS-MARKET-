@@ -7,6 +7,7 @@ const sizes = {
   lg: 'h-14 w-14 text-base',
   xl: 'h-20 w-20 text-xl',
   '2xl': 'h-28 w-28 text-3xl',
+  profile: 'h-20 w-20 text-2xl md:h-28 md:w-28 md:text-3xl',
 }
 
 export default function Avatar({ name = '', size = 'md', className, ring = true }) {

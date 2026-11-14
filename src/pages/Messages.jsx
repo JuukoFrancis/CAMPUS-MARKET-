@@ -166,7 +166,7 @@ export default function Messages() {
 
       <div className="container-x py-7 sm:py-9">
         <div ref={cardRef} className="card scroll-mt-24 overflow-hidden">
-          <div className="grid h-[calc(100vh-260px)] min-h-[500px] md:min-h-[540px] md:grid-cols-[320px_1fr]">
+          <div className="grid h-[calc(100vh-260px)] min-h-[500px] md:h-[calc(100vh-350px)] md:min-h-[380px] md:grid-cols-[320px_1fr]">
             {/* THREAD LIST */}
             <div
               className={cn(

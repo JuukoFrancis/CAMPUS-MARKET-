@@ -1,17 +1,17 @@
 import {
+  Bike,
   BookOpen,
   Lamp,
   Laptop,
   Shirt,
   Sparkles,
-  UtensilsCrossed,
   Wand2,
 } from 'lucide-react'
 
 const map = {
   Laptop,
   Shirt,
-  UtensilsCrossed,
+  Bike,
   Sparkles,
   BookOpen,
   Wand2,

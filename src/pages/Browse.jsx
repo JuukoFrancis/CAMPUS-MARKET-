@@ -384,7 +384,7 @@ export default function Browse() {
                 <input
                   value={query}
                   onChange={(event) => setQuery(event.target.value)}
-                  placeholder="Search iPhone, textbooks, chapati…"
+                  placeholder="Search iPhone, textbooks, bike…"
                   aria-label="Search listings"
                   className="h-10 w-full bg-transparent text-sm text-forest-950 placeholder:text-forest-900/70 focus:outline-none"
                 />

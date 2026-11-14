@@ -1,11 +1,13 @@
 import { createContext, useContext, useEffect, useMemo, useState } from 'react'
 import {
+  categories,
   defaultUser,
   products as seedProducts,
   seedUserListings,
 } from '../data/market'
 
 const AppContext = createContext(null)
+const allowedCategories = new Set(categories.map((category) => category.id))
 
 const readStorage = (key, fallback) => {
   try {
@@ -16,11 +18,19 @@ const readStorage = (key, fallback) => {
   }
 }
 
+const readListings = () => {
+  const stored = readStorage('cm_listings', seedUserListings)
+  if (!Array.isArray(stored)) return seedUserListings
+  return stored
+    .filter((listing) => allowedCategories.has(listing?.category))
+    .map((listing) =>
+      listing?.seller?.id === defaultUser.id ? { ...listing, seller: defaultUser } : listing
+    )
+}
+
 export function AppProvider({ children }) {
   const [saved, setSaved] = useState(() => readStorage('cm_saved', ['p1', 'p9']))
-  const [userListings, setUserListings] = useState(() =>
-    readStorage('cm_listings', seedUserListings)
-  )
+  const [userListings, setUserListings] = useState(readListings)
 
   useEffect(() => {
     try {

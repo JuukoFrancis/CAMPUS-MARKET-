@@ -41,7 +41,7 @@ export default function ProductCard({ product, index = 0, compact = false }) {
           />
 
           <div className="absolute inset-x-0 top-0 flex items-start justify-between gap-2 p-3">
-            <span className="rounded-full border border-white/50 bg-white/85 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-forest-900 backdrop-blur-md">
+            <span className="shrink-0 rounded-full border border-white/50 bg-white/85 px-2 py-1 text-[9px] font-bold uppercase tracking-wider text-forest-900 backdrop-blur-md min-[360px]:px-2.5 min-[360px]:text-[10px]">
               {product.condition}
             </span>
             <button
@@ -49,7 +49,7 @@ export default function ProductCard({ product, index = 0, compact = false }) {
               onClick={onSave}
               aria-label={isSaved ? 'Remove from favourites' : 'Save listing'}
               aria-pressed={isSaved}
-              className="grid h-9 w-9 place-items-center rounded-full border border-white/50 bg-white/85 text-forest-900 backdrop-blur-md transition hover:scale-105 hover:bg-white active:scale-95"
+              className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-white/50 bg-white/85 text-forest-900 backdrop-blur-md transition hover:scale-105 hover:bg-white active:scale-95"
             >
               <Heart
                 className={`h-[17px] w-[17px] transition ${
@@ -83,7 +83,7 @@ export default function ProductCard({ product, index = 0, compact = false }) {
             {product.title}
           </h3>
 
-          <div className="mt-1 flex items-baseline justify-between gap-2">
+          <div className="mt-1 flex flex-wrap items-baseline justify-between gap-x-2 gap-y-0.5">
             <p className="font-display text-[19px] font-semibold leading-tight text-forest-950">
               {formatUGX(product.price)}
             </p>

@@ -79,11 +79,12 @@ export default function Profile() {
             </p>
           </div>
 
-          <div className="px-5 pb-6 sm:px-8">
-            <div className="-mt-12 flex flex-wrap items-end gap-4">
-              <Avatar name={user.name} size="2xl" className="ring-4 ring-white" />
-              <div className="min-w-0 flex-1 pt-2">
-                <h1 className="flex flex-wrap items-center gap-2 font-display text-2xl font-semibold tracking-tight text-forest-950 sm:text-3xl">
+          <div className="px-4 pb-6 sm:px-8">
+            <div className="-mt-10 flex flex-wrap items-end gap-x-2.5 gap-y-3 sm:gap-x-4 md:-mt-14">
+              <Avatar name={user.name} size="profile" className="ring-4 ring-white" />
+
+              <div className="order-3 w-full min-w-0 sm:order-none sm:w-auto sm:flex-1 sm:pb-1">
+                <h1 className="flex flex-wrap items-center gap-x-2 gap-y-1 font-display text-2xl font-semibold tracking-tight text-forest-950 sm:text-3xl">
                   {user.name}
                   {user.verified && (
                     <span className="inline-flex items-center gap-1 rounded-full bg-forest-50 px-2 py-1 text-[9px] font-bold uppercase tracking-wider text-forest-700">
@@ -107,7 +108,7 @@ export default function Profile() {
                 </p>
               </div>
 
-              <div className="flex items-center gap-2 pb-1">
+              <div className="order-2 ml-auto flex items-center gap-2 pb-1 sm:order-none sm:ml-0">
                 <button
                   type="button"
                   onClick={() =>
@@ -115,22 +116,24 @@ export default function Profile() {
                       description: 'For now, your student details are locked to keep accounts verified.',
                     })
                   }
-                  className="btn btn-ghost h-10 px-4 text-[12px]"
+                  className="btn btn-ghost h-10 px-2.5 text-[12px] sm:px-4"
                 >
-                  <Pencil className="h-3.5 w-3.5" /> Edit profile
+                  <Pencil className="h-3.5 w-3.5" />
+                  <span className="md:hidden">Edit</span>
+                  <span className="hidden md:inline">Edit profile</span>
                 </button>
                 <button
                   type="button"
                   onClick={copyProfile}
                   aria-label="Copy profile link"
-                  className="grid h-10 w-10 place-items-center rounded-full border border-forest-900/15 bg-white text-forest-900/70 transition hover:text-forest-950"
+                  className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-forest-900/15 bg-white text-forest-900/70 transition hover:text-forest-950"
                 >
                   <Share2 className="h-4 w-4" />
                 </button>
               </div>
             </div>
 
-            <div className="mt-6 grid grid-cols-2 gap-2 sm:grid-cols-4">
+            <div className="mt-5 grid grid-cols-2 gap-2 sm:mt-6 sm:grid-cols-4">
               {stats.map((stat) => (
                 <div
                   key={stat.label}
@@ -146,25 +149,27 @@ export default function Profile() {
               ))}
             </div>
 
-            <div className="mt-4 flex flex-wrap items-center gap-3 rounded-2xl border border-forest-900/10 bg-forest-50 px-4 py-3">
-              <span className="grid h-9 w-9 place-items-center rounded-xl bg-white text-forest-700 shadow-sm">
+            <div className="mt-4 flex items-start gap-3 rounded-2xl border border-forest-900/10 bg-forest-50 px-4 py-3.5">
+              <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-white text-forest-700 shadow-sm">
                 <ShieldCheck className="h-4 w-4" />
               </span>
               <div className="min-w-0 flex-1">
-                <p className="text-[12px] font-bold text-forest-950">Student verification active</p>
-                <p className="text-[10px] text-forest-900/70">
+                <div className="flex items-center gap-2">
+                  <p className="text-[12px] font-bold text-forest-950">Student verification active</p>
+                  <span className="ml-auto hidden shrink-0 items-center gap-1 rounded-full bg-white px-2.5 py-1 text-[9px] font-bold uppercase tracking-wider text-forest-700 shadow-sm sm:inline-flex">
+                    <BadgeCheck className="h-3 w-3" /> Verified
+                  </span>
+                </div>
+                <p className="mt-0.5 text-[10px] leading-relaxed text-forest-900/70">
                   Reg no {user.regNo} · checked by a campus moderator · your contact stays private
                   until an order is confirmed
                 </p>
               </div>
-              <span className="inline-flex items-center gap-1 rounded-full bg-white px-2.5 py-1 text-[9px] font-bold uppercase tracking-wider text-forest-700 shadow-sm">
-                <BadgeCheck className="h-3 w-3" /> Verified
-              </span>
             </div>
           </div>
         </div>
 
-        <div className="mt-7 flex items-center gap-1 overflow-x-auto border-b border-forest-900/10">
+        <div className="mt-7 grid grid-cols-3 border-b border-forest-900/10 sm:flex sm:items-center sm:gap-1">
           {tabs.map((item) => {
             const count =
               item.id === 'listings'
@@ -177,12 +182,15 @@ export default function Profile() {
                 key={item.id}
                 type="button"
                 onClick={() => setTab(item.id)}
-                className={`relative shrink-0 px-4 py-3 text-[12px] font-semibold transition ${
+                className={`relative shrink-0 px-1 py-3 text-[11px] font-semibold transition sm:px-4 sm:text-[12px] ${
                   tab === item.id ? 'text-forest-950' : 'text-forest-900/70 hover:text-forest-900'
                 }`}
               >
-                <span className="flex items-center gap-1.5">
-                  {item.label}
+                <span className="flex items-center justify-center gap-1 sm:gap-1.5">
+                  <span className="min-[360px]:hidden">
+                    {item.id === 'listings' ? 'Listings' : item.label}
+                  </span>
+                  <span className="hidden min-[360px]:inline">{item.label}</span>
                   <span
                     className={`rounded-full px-1.5 py-0.5 text-[9px] font-bold ${
                       tab === item.id ? 'bg-forest-900 text-cream' : 'bg-forest-900/5'
@@ -208,7 +216,7 @@ export default function Profile() {
                     {userListings.map((listing) => (
                       <div
                         key={listing.id}
-                        className="flex items-center gap-3 border-b border-forest-900/10 p-3 last:border-0 sm:p-4"
+                        className="flex items-start gap-3 border-b border-forest-900/10 p-3 last:border-0 sm:items-center sm:p-4"
                       >
                         <Link
                           to={`/product/${listing.id}`}
@@ -230,10 +238,10 @@ export default function Profile() {
                           >
                             {listing.title}
                           </Link>
-                          <p className="mt-0.5 text-[10px] text-forest-900/70">
+                          <p className="mt-0.5 line-clamp-1 text-[10px] text-forest-900/70">
                             {listing.category} · {listing.condition} · {listing.posted}
                           </p>
-                          <div className="mt-1 flex flex-wrap items-center gap-2">
+                          <div className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1">
                             <p className="font-display text-[15px] font-semibold text-forest-950">
                               {formatUGX(listing.price)}
                             </p>
@@ -245,10 +253,10 @@ export default function Profile() {
                             </span>
                           </div>
                         </div>
-                        <div className="flex shrink-0 items-center gap-1">
+                        <div className="flex shrink-0 items-center gap-0.5 pt-0.5 sm:gap-1 sm:pt-0">
                           <Link
                             to={`/product/${listing.id}`}
-                            className="btn btn-ghost h-9 px-3 text-[11px]"
+                            className="btn btn-ghost hidden h-9 px-3 text-[11px] sm:inline-flex"
                           >
                             View
                           </Link>
@@ -265,7 +273,7 @@ export default function Profile() {
                     ))}
                   </div>
 
-                  <div className="flex flex-col items-center justify-between gap-3 rounded-3xl bg-lime-300 px-5 py-5 sm:flex-row">
+                  <div className="flex flex-col items-stretch justify-between gap-3 rounded-3xl bg-lime-300 px-5 py-5 sm:flex-row sm:items-center">
                     <div>
                       <p className="font-display text-lg font-semibold text-forest-950">
                         Got more to sell?
@@ -274,7 +282,10 @@ export default function Profile() {
                         Listing is free. The first 30 sellers get a free 3-day boost.
                       </p>
                     </div>
-                    <Link to="/sell" className="btn btn-primary h-10 shrink-0 px-4 text-[12px]">
+                    <Link
+                      to="/sell"
+                      className="btn btn-primary h-10 w-full shrink-0 px-4 text-[12px] sm:w-auto"
+                    >
                       <Store className="h-3.5 w-3.5" /> Create a listing
                     </Link>
                   </div>

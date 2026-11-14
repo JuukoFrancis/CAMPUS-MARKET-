@@ -28,7 +28,7 @@ import CategoryIcon from '../components/CategoryIcon'
 import Reveal from '../components/Reveal'
 import Avatar from '../components/Avatar'
 
-const featuredTabs = ['All', 'Electronics', 'Fashion', 'Food', 'Books', 'Hostel & Home']
+const featuredTabs = ['All', 'Electronics', 'Fashion', 'Sports', 'Books', 'Hostel & Home']
 
 const steps = [
   {
@@ -212,7 +212,7 @@ export default function Landing() {
               <span className="text-[11px] font-semibold uppercase tracking-wider text-forest-900/70">
                 Trending
               </span>
-              {['iPhone', 'sneakers', 'chapati', 'textbooks', 'braiding'].map((term) => (
+              {['iPhone', 'sneakers', 'bike', 'textbooks', 'braiding'].map((term) => (
                 <button
                   key={term}
                   type="button"
@@ -321,14 +321,14 @@ export default function Landing() {
             >
               <div className="rotate-[4deg] overflow-hidden rounded-[1.6rem] border-4 border-white bg-white shadow-lift">
                 <img
-                  src="/images/chapati-1.jpg"
-                  alt="Chapati and beans plate"
+                  src="/images/bike-1.jpg"
+                  alt="Mountain bike for sale"
                   className="aspect-[4/3] w-full object-cover"
                 />
                 <div className="flex items-center justify-between gap-1 px-2 py-2">
-                  <p className="truncate text-[10px] font-bold text-forest-950">Chapati & beans</p>
+                  <p className="truncate text-[10px] font-bold text-forest-950">Mountain bike</p>
                   <span className="rounded-full bg-lime-200 px-1.5 py-0.5 text-[8px] font-bold text-forest-900">
-                    Fresh
+                    Good
                   </span>
                 </div>
               </div>
@@ -428,7 +428,7 @@ export default function Landing() {
             <Reveal key={category.id} delay={index * 0.04}>
               <Link
                 to={`/browse?cat=${encodeURIComponent(category.id)}`}
-                className="group flex h-full flex-col justify-between rounded-3xl border border-forest-900/10 bg-white p-5 transition duration-300 hover:-translate-y-1 hover:border-forest-900 hover:bg-forest-950 hover:shadow-lift"
+                className="group flex h-full flex-col justify-between rounded-3xl border border-forest-900/10 bg-white p-4 transition duration-300 hover:-translate-y-1 hover:border-forest-900 hover:bg-forest-950 hover:shadow-lift sm:p-5"
               >
                 <div className="flex items-start justify-between">
                   <span className="grid h-11 w-11 place-items-center rounded-2xl bg-forest-50 text-forest-700 transition group-hover:bg-lime-300 group-hover:text-forest-950">
@@ -437,7 +437,7 @@ export default function Landing() {
                   <ArrowUpRight className="h-4 w-4 text-forest-900/25 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-lime-300" />
                 </div>
                 <div className="mt-8">
-                  <h3 className="text-[15px] font-semibold text-forest-950 transition group-hover:text-cream">
+                  <h3 className="text-[14px] font-semibold text-forest-950 transition group-hover:text-cream min-[360px]:text-[15px]">
                     {category.label}
                   </h3>
                   <p className="mt-0.5 text-[11px] text-forest-900/70 transition group-hover:text-cream/70">
@@ -454,13 +454,13 @@ export default function Landing() {
           <Reveal delay={0.28}>
             <Link
               to="/sell"
-              className="group flex h-full min-h-[172px] flex-col justify-between rounded-3xl bg-lime-300 p-5 transition duration-300 hover:-translate-y-1 hover:bg-lime-400 hover:shadow-lift"
+              className="group flex h-full min-h-[172px] flex-col justify-between rounded-3xl bg-lime-300 p-4 transition duration-300 hover:-translate-y-1 hover:bg-lime-400 hover:shadow-lift sm:p-5"
             >
               <span className="grid h-11 w-11 place-items-center rounded-2xl bg-forest-950 text-lime-300">
                 <Plus className="h-5 w-5" strokeWidth={2.6} />
               </span>
               <div className="mt-8">
-                <h3 className="text-[15px] font-semibold text-forest-950">Got something to sell?</h3>
+                <h3 className="text-[14px] font-semibold text-forest-950 sm:text-[15px]">Got something to sell?</h3>
                 <p className="mt-1 inline-flex items-center gap-1.5 text-[11px] font-semibold text-forest-900/75">
                   List it free <ArrowRight className="h-3.5 w-3.5" />
                 </p>
@@ -476,7 +476,7 @@ export default function Landing() {
           <Reveal className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div>
               <p className="eyebrow flex items-center gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-coral" /> Fresh on campus
+                <span className="h-1.5 w-1.5 rounded-full bg-coral" /> Just listed on campus
               </p>
               <h2 className="mt-2 max-w-xl font-display text-[clamp(2rem,4vw,2.9rem)] font-semibold leading-[1.05] tracking-tight text-forest-950">
                 Real listings from verified students.
